@@ -1,0 +1,8 @@
+<form method="post" id="payment-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success">Donate with Card</button>
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<!-- Include JavaScript to handle Stripe payment here -->

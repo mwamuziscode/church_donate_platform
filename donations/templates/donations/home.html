@@ -1,0 +1,19 @@
+{% for update in updates %}
+<div class="card">
+  <div class="card-body">
+    <h5>{{ update.title }}</h5>
+    <p>{{ update.content }}</p>
+    <form method="get" action="{% url 'like' update.id %}">
+      <button class="btn btn-outline-primary">
+        <i class="fa fa-thumbs-up"></i> Like
+      </button>
+    </form>
+
+    <form method="post" action="{% url 'comment' update.id %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-outline-secondary">Comment</button>
+    </form>
+  </div>
+</div>
+{% endfor %}
