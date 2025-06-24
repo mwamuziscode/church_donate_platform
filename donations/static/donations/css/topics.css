@@ -1,0 +1,71 @@
+.topics-section {
+    padding: 40px 20px;
+    background: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.topics-section h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.topic-card {
+    position: relative;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.topic-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.topic-card span {
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    text-align: center;
+    z-index: 1;
+}
+
+.topic-card[data-topic='prayer'] {
+    background-image: url('/static/donations/images/prayer-topic.jpg');
+}
+.topic-card[data-topic='bible'] {
+    background-image: url('/static/donations/images/bible-topic.jpg');
+}
+
+
+
+/*
+
+https://picsum.photos/seed/img1/640/480
+https://picsum.photos/seed/img2/640/480?grayscale
+https://picsum.photos/seed/img3/640/480?blur=2
+https://picsum.photos/seed/img4/640/480?grayscale&blur=3
+https://picsum.photos/seed/img5/320/240
+https://picsum.photos/seed/img6/800/400
+https://picsum.photos/seed/img7/128/128
+https://picsum.photos/seed/img8/1024/768
+https://picsum.photos/seed/img9/640/480?grayscale&blur=5
+https://picsum.photos/seed/img10/300/300
+
+*/

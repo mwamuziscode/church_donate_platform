@@ -1,0 +1,45 @@
+{% load static %}
+
+{% load static %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'donations/css/features.css' %}">
+{% endblock %}
+
+
+<section class="featured-section">
+    <div class="featured-header">
+        <h2 class="featured-title">Featured</h2>
+        <a href="#">See More</a>
+    </div>
+
+    <div class="featured-cards">
+        <div class="card">
+            <img src="{% static 'donations/images/feature-1.jpg' %}" alt="Child News">
+            <p>Help Your Children Deal With Disturbing News Reports</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'donations/images/feature-1.jpg' %}" alt="Christian">
+            <p>What Does It Mean to Be a Christian?</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'donations/images/feature-1.jpg' %}" alt="War">
+            <p>Jesus Will End War</p>
+        </div>
+    </div>
+
+    <div class="bottom-feature">
+        <div class="bible">
+            <img src="{% static 'donations/images/feature-3.jpg' %}" alt="Bible">
+            <div>
+                <h3>Read the Bible Online</h3>
+                <p>This free study edition of the <em>New World Translation</em> includes pictures, footnotes, cross-references, and additional study tools.</p>
+            </div>
+        </div>
+        <div class="whats-new">
+            <p><strong>See recently added videos, music, articles, and news.</strong></p>
+            <a href="#" class="btn">See What’s New &rarr;</a>
+        </div>
+    </div>
+</section>

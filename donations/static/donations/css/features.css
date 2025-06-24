@@ -1,0 +1,88 @@
+.featured-section {
+    padding: 40px;
+    background: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.featured-header h2 {
+    font-size: 24px;
+    color: #222;
+}
+
+.featured-header a {
+    color: #3366cc;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.featured-cards {
+    display: flex;
+    gap: 30px;
+    margin: 20px 0 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card p {
+    color: #4a4a89;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.bottom-feature {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
+}
+
+.bible {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.bible img {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
+}
+
+.bible h3 {
+    color: #4a4a89;
+    margin: 0;
+}
+
+.whats-new {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.whats-new .btn {
+    background: #3366cc;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+    width: fit-content;
+}

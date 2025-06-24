@@ -6,7 +6,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
-    content = RichTextUploadingField()
+    content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Donation(models.Model):

@@ -1,0 +1,20 @@
+body {
+    background: #eef;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 2rem;
+}
+
+a.go-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+a.go-home:hover {
+    background-color: #005fa3;
+}

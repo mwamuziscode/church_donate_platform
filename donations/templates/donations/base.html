@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fish in the Pool{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'donations/css/stylex.css' %}">
+    <link rel="stylesheet" href="{% static 'donations/css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+    <div class="logo-container">
+        <img src="{% static 'donations/images/donater.png' %}" alt="Logo">
+        <span class="brand-name">Jehovah’s Witnesses</span>
+    </div>
+    <div class="header-actions">
+        <a href="#"><i class="fas fa-language"></i> English</a>
+        <a href="#"><i class="fas fa-user"></i> Log In</a>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="main-nav">
+    <a href="{% url 'home' %}"><i class="fas fa-home"></i> HOME</a>
+    <a href="{% url 'teachings' %}"><i class="fas fa-book-open"></i> BIBLE TEACHINGS</a>
+    <a href="{% url 'library' %}"><i class="fas fa-photo-film"></i> LIBRARY</a>
+    <a href="{% url 'news' %}"><i class="fas fa-globe"></i> NEWS</a>
+    <a href="{% url 'about' %}"><i class="fas fa-users"></i> ABOUT US</a>
+</nav>
+
+<!-- Main Content -->
+ 
+<!-- include hero.html -->
+{% include 'donations/header.html' %}
+
+<!-- include hero.html -->
+{% include 'donations/feature.html' %}
+
+{% include 'donations/topics.html' %}
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+{% include 'donations/footer.html' %}
+<!-- JS -->
+<script src="{% static 'donations/js/main.js' %}"></script>
+</body>
+</html>
