@@ -1,0 +1,20 @@
+{% extends 'donations/base.html' %}
+
+{% load static %}
+{% block title %}Home{% endblock %}
+
+<!-- include hero.html -->
+{% block content %}
+
+
+<!-- include hero.html -->
+{% include 'donations/feature.html' %}
+
+
+{% for item in model_blog_data %}
+  DATA: {{ item }}
+{% endfor %}
+
+
+{% endblock %}
+

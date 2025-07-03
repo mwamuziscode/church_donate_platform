@@ -42,14 +42,11 @@
 
 <!-- Main Content -->
  
-<!-- include hero.html -->
-{% include 'donations/header.html' %}
+{% comment %}
 
-<!-- include hero.html -->
-{% include 'donations/feature.html' %}
 
 {% include 'donations/topics.html' %}
-
+{% endcomment %}
 <main>
     {% block content %}
     {% endblock %}

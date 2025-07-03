@@ -3,8 +3,21 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
+<!-- include hero.html -->
 {% block content %}
+{% include 'donations/header.html' %}
+<br>
 
+<br style="margin: 20px;padding: 15px;">
+
+<!-- include hero.html -->
+{% include 'donations/feature.html' %}
+
+{% for item in model_blog_data %}
+    <h3>{{ item.title }}</h3>
+{% empty %}
+  <p>No blog posts available.</p>
+{% endfor %}
 
 {% endblock %}
 

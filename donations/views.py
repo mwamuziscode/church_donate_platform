@@ -1,7 +1,7 @@
 from django.views.generic import ListView, FormView, View
 from django.shortcuts import redirect, get_object_or_404
 from django.core.mail import send_mail
-from .models import Blog, Like, Comment
+from .models import Blog, HeadLine, Like, Comment
 from .forms import DonationForm, CommentForm
 #import stripe = 1
 
@@ -63,31 +63,57 @@ class CommentCreateView(FormView):
 
 
 
-# ---------------------------------------------
+from django.views.generic import TemplateView
+
+BUTTON_HTML = '<p><a href="/" style="text-decoration:none;padding:8px 12px;background:#0077aa;color:white;border-radius:5px;">Go Home</a></p>'
+
+class HomeView(TemplateView):
+    template_name = "donations/home.html"
+    # If you need to pass context, override get_context_data
 
 
-from django.http import HttpResponse
-from django.views import View
 
-BUTTON = '<p><a href="/" style="text-decoration:none;padding:8px 12px;background:#0077aa;color:white;border-radius:5px;">Go Home</a></p>'
+class MultiModelView(TemplateView):
+    template_name = 'donations/home.html'
 
-class HomeView(View):
-    def get(self, request):
-        return HttpResponse("<h2>Welcome to the Home Page!</h2>" + BUTTON)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['model_headline_data'] = HeadLine.objects.all()#.order_by('-created_at')[:1]
+        context['model_blog_data'] = Blog.objects.all().order_by('-created_at')[:3]
+        return context
 
-class BibleTeachingsView(View):
-    def get(self, request):
-        return HttpResponse("<h2>Welcome to Bible Teachings</h2>" + BUTTON)
 
-class LibraryView(View):
-    def get(self, request):
-        return HttpResponse("<h2>Welcome to the Library</h2>" + BUTTON)
 
-class NewsView(View):
-    def get(self, request):
-        return HttpResponse("<h2>Latest News and Updates</h2>" + BUTTON)
+class BibleTeachingsView(TemplateView):
+    template_name = "donations/bible_teachings.html"
 
-class AboutUsView(View):
-    def get(self, request):
-        return HttpResponse("<h2>About Us</h2>" + BUTTON)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "<h2>Welcome to Bible Teachings</h2>" + BUTTON_HTML
+        return context
+
+class LibraryView(TemplateView):
+    template_name = "donations/photo_library.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "<h2>Welcome to the Library</h2>" + BUTTON_HTML
+        return context
+
+class NewsView(TemplateView):
+    template_name = "donations/news.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "<h2>Latest News and Updates</h2>" + BUTTON_HTML
+        return context
+
+class AboutUsView(TemplateView):
+    template_name = "donations/about_us.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "<h2>About Us</h2>" + BUTTON_HTML
+        return context
+
 

@@ -14,20 +14,19 @@
         <a href="#">See More</a>
     </div>
 
+
+
     <div class="featured-cards">
+        {% for item in model_blog_data.all %}
         <div class="card">
             <img src="{% static 'donations/images/feature-1.jpg' %}" alt="Child News">
             <p>Help Your Children Deal With Disturbing News Reports</p>
         </div>
-        <div class="card">
-            <img src="{% static 'donations/images/feature-1.jpg' %}" alt="Christian">
-            <p>What Does It Mean to Be a Christian?</p>
-        </div>
-        <div class="card">
-            <img src="{% static 'donations/images/feature-1.jpg' %}" alt="War">
-            <p>Jesus Will End War</p>
-        </div>
+        {% endfor %}
     </div>
+
+    DATA AVAILABLE IS: {{ model_blog_data.count }}
+
 
     <div class="bottom-feature">
         <div class="bible">

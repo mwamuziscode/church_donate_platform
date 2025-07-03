@@ -13,7 +13,7 @@ urlpatterns = [
 
 
 urlpatterns += [
-    path('home', views.HomeView.as_view(), name='home'),
+    path('home', views.MultiModelView.as_view(), name='home'),
     path('teachings/', views.BibleTeachingsView.as_view(), name='teachings'),
     path('library/', views.LibraryView.as_view(), name='library'),
     path('news/', views.NewsView.as_view(), name='news'),
