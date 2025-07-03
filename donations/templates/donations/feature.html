@@ -17,15 +17,17 @@
 
 
     <div class="featured-cards">
-        {% for item in model_blog_data.all %}
+        {% for item in blogs.all %}
         <div class="card">
             <img src="{% static 'donations/images/feature-1.jpg' %}" alt="Child News">
-            <p>Help Your Children Deal With Disturbing News Reports</p>
+            <p>
+                <strong>{{ item.title }}</strong>
+            </p>
         </div>
         {% endfor %}
     </div>
 
-    DATA AVAILABLE IS: {{ model_blog_data.count }}
+    DATA AVAILABLE IS: {{ blogs.count }}
 
 
     <div class="bottom-feature">

@@ -1,0 +1,43 @@
+{% extends "donations/base.html" %}
+
+{% block title %}Svar på bibelske spørsmål{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'donations/css/blogs_details.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="bible-questions-container">
+    <header class="questions-header">
+        <h1>Svar på bibelske spørsmål</h1>
+        <p class="lead">Hva er det Bibelen <em>egentlig</em> lærer? Velg et spørsmål fra en av kategoriene nedenfor.</p>
+    </header>
+
+    <div class="categories-container">
+        <nav class="categories-nav">
+            <ul class="categories-grid">
+                <li><a href="#" class="category-btn active">Alle</a></li>
+                <li><a href="#" class="category-btn">Gud</a></li>
+                <li><a href="#" class="category-btn">Bibelen</a></li>
+                <li><a href="#" class="category-btn">Jesus</a></li>
+                <li><a href="#" class="category-btn">Guds rike</a></li>
+                <li><a href="#" class="category-btn">Ändeverdenen</a></li>
+                <li><a href="#" class="category-btn">Livet & daden</a></li>
+                <li><a href="#" class="category-btn">Nad & lidelse</a></li>
+                <li><a href="#" class="category-btn">Tro & tilbedelse</a></li>
+                <li><a href="#" class="category-btn">Heytider & feiringer</a></li>
+                <li><a href="#" class="category-btn">Moral & livsstil</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="question-content">
+        <article class="featured-question">
+            <h2>Hvordan kan du finne den sanne religion?</h2>
+            <p>Bibelen peker på ni kjennetegn ved sann religion.</p>
+            <a href="#" class="read-more-btn">Les mer</a>
+        </article>
+    </div>
+</div>
+{% endblock %}

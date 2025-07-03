@@ -1,12 +1,12 @@
 from django.views.generic import ListView, FormView, View
 from django.shortcuts import redirect, get_object_or_404
 from django.core.mail import send_mail
-from .models import Blog, HeadLine, Like, Comment
+from .models import Blog, HeadLine, Like, Comment, Topic
 from .forms import DonationForm, CommentForm
-#import stripe = 1
+import stripe 
+stripe.api_key = 'your_stripe_secret_key'
 
-#stripe = 1
-#stripe.api_key = 'your_stripe_secret_key'
+
 
 class BlogListView(ListView):
     model = Blog
@@ -60,26 +60,22 @@ class CommentCreateView(FormView):
         return redirect('home')
     
 
-
-
-
 from django.views.generic import TemplateView
 
 BUTTON_HTML = '<p><a href="/" style="text-decoration:none;padding:8px 12px;background:#0077aa;color:white;border-radius:5px;">Go Home</a></p>'
 
-class HomeView(TemplateView):
-    template_name = "donations/home.html"
-    # If you need to pass context, override get_context_data
 
-
-
+# MultiModelView to display multiple models on the same page
 class MultiModelView(TemplateView):
     template_name = 'donations/home.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['model_headline_data'] = HeadLine.objects.all()#.order_by('-created_at')[:1]
-        context['model_blog_data'] = Blog.objects.all().order_by('-created_at')[:3]
+
+        # first first newest 5 blogs
+        context['blogs'] = Blog.objects.all().order_by('-created_at')[:4]
+        context['topics'] = Topic.objects.all().order_by('-created_at')[:8]
+        context['headlines'] = HeadLine.objects.all().order_by('-created_at')[:5]
         return context
 
 

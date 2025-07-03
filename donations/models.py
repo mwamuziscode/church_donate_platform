@@ -9,18 +9,28 @@ fake = Faker()
 
 
 class Topic(models.Model):
-    name = models.ImageField(blank=False,max_length=255 )
+    name = models.CharField(blank=False,max_length=255, default=fake.sentence(nb_words=10))
     image = models.ImageField(default="default.jpg", blank=False, max_length=255)
+    descriptions = models.TextField(blank=True, default=fake.sentence(nb_words=20))
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
+    
+    # add url field to the image field default fake.image.urlPicsumPhotos({ blur: 4, grayscale: true })
+    @property
+    def image_url(self):
+        if self.image:
+            return self.image.url
+        return "default.jpg"
 
 
 
 class HeadLine(models.Model):
     front_line = models.CharField( max_length=255,  blank=False,  default=fake.sentence(nb_words=20))
     descriptions = models.CharField(max_length=255, blank=False, default=fake.sentence(nb_words=20))
-    #created_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(default="default.jpg", blank=False, max_length=255)
+    created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.front_line.istitle()
@@ -30,6 +40,10 @@ class Blog(models.Model):
     content = models.TextField(help_text="Write Content That Are well study")
     created_at = models.DateTimeField(auto_now_add=True)
     cats = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name='blogs', blank=False) 
+    image = models.ImageField(default="default.jpg", blank=False, max_length=255)
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):

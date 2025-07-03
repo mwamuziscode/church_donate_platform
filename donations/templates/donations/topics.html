@@ -5,14 +5,26 @@
 {% endblock %}
 
 <section class="topics-section">
-    <h2>Select a Topic That Interests You</h2>
+    <h2>Select a Topic That Interests You -
+        {{ topics.count }} Topics Available
+    </h2>
+
+    <p>Click on a topic to explore related articles, videos, and resources.</p>
+    <!-- Display topics in a grid layout -->
+    {{ message |safe }}
+
     <div class="topics-grid">
-        {% for topic in topics %}
-        <div class="topic-card" style="background-image: url('https://picsum.photos/seed/img1/640/480')">
+        {% for topic in topics.all %}
+        <div class="topic-card" style="background-image: url('{{ topic.image }}')">
             <span>
-                {{ topic.summery }}
+                {{ topic.name }}
             </span>
         </div>
-        {% endfor %}
+    {% empty %}
+        <div class="no-topics">
+            <p>No topics available.</p>
+        </div>
+    {% endfor %}
+    
     </div>
 </section>

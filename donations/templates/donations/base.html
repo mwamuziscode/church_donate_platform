@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Fish in the Pool{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+ 
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'donations/css/stylex.css' %}">
@@ -19,7 +20,9 @@
 <header class="top-header">
     <div class="logo-container">
         <img src="{% static 'donations/images/donater.png' %}" alt="Logo">
-        <span class="brand-name">Jehovah’s Witnesses</span>
+        <span class="brand-name">
+            ISAC JACKSON CHURCH OF CHRIST
+        </span>
     </div>
     <div class="header-actions">
         <a href="#"><i class="fas fa-language"></i> English</a>
@@ -36,21 +39,20 @@
     <a href="{% url 'home' %}"><i class="fas fa-home"></i> HOME</a>
     <a href="{% url 'teachings' %}"><i class="fas fa-book-open"></i> BIBLE TEACHINGS</a>
     <a href="{% url 'library' %}"><i class="fas fa-photo-film"></i> LIBRARY</a>
+    <a href="{% url 'donate' %}"><i class="fas fa-hand-holding-heart"></i> DONATE</a>
+    <a href=""><i class="fas fa-donate"></i> DONATIONS</a>
+    <a href=""><i class="fas fa-video"></i> VIDEOS</a>
     <a href="{% url 'news' %}"><i class="fas fa-globe"></i> NEWS</a>
     <a href="{% url 'about' %}"><i class="fas fa-users"></i> ABOUT US</a>
 </nav>
 
-<!-- Main Content -->
- 
-{% comment %}
 
-
-{% include 'donations/topics.html' %}
-{% endcomment %}
 <main>
     {% block content %}
+
     {% endblock %}
 </main>
+
 
 {% include 'donations/footer.html' %}
 <!-- JS -->

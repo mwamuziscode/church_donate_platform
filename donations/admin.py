@@ -1,5 +1,13 @@
 from django.contrib import admin
-from donations.models import Blog, Donation, Comment, Like
+from donations.models import Blog, Donation, Comment, Like, Topic
+
+
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_at')
+    #search_fields = ('name', 'descriptions')
+
+
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at')
