@@ -1,10 +1,12 @@
 from django.views.generic import ListView, FormView, View
 from django.shortcuts import redirect, get_object_or_404
 from django.core.mail import send_mail
-from .models import Blog, HeadLine, Like, Comment, Topic
+from .models import Blog, HeadLine, Like, Comment, Topic, DetailView
 from .forms import DonationForm, CommentForm
 import stripe 
 stripe.api_key = 'your_stripe_secret_key'
+
+
 
 
 
@@ -12,6 +14,11 @@ class BlogListView(ListView):
     model = Blog
     template_name = 'donations/home.html'
     context_object_name = 'blogs'
+
+
+class BlogDetailsView(DetailView):
+    model = Blog
+ 
 
 class DonationView(FormView):
     template_name = 'donations/donate.html'
